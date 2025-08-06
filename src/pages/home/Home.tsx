@@ -8,8 +8,7 @@ function Home() {
               Saúde + Código
             </h2>
             <p className="bg-teal-800 text-xl italic text-center">
-              Cuidando da sua saúde com o mesmo carinho que você cuida do
-              código!
+              Cuidando da sua saúde com o mesmo carinho que você cuida do código!
             </p>
           </div>
           <img
@@ -20,7 +19,11 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-emerald-50 py-30 px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+            <h1 className="bg-emerald-50 text-3xl font-bold text-teal-800 py-20 px-9">
+        Categorias
+      </h1>
+
+      <section className="bg-emerald-50 pb-30 px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
         {[
           { nome: "Depurex Forte", desc: "Contra bugs persistentes" },
           { nome: "Refactorina 500mg", desc: "Para códigos desorganizados" },
@@ -53,7 +56,6 @@ function Home() {
             </div>
           </div>
         ))}
-        ;
       </section>
     </div>
   );
