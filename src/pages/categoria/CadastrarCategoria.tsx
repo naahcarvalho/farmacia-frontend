@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { cadastrar } from "../../services/Service";
 
 export default function CadastrarCategoria() {
   const [categoria, setCategoria] = useState("");
   const [descricao, setDescricao] = useState("");
+  const navigate = useNavigate();
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
     if (!categoria.trim()) {
@@ -17,10 +20,18 @@ export default function CadastrarCategoria() {
       return;
     }
 
-    alert(`Categoria "${categoria}" cadastrada com sucesso!\nDescrição: ${descricao}`);
+    try {
+      await cadastrar("/categorias", { nome: categoria, descricao }, () => {});
+      alert(`Categoria "${categoria}" cadastrada com sucesso!`);
+      
+      setCategoria("");
+      setDescricao("");
 
-    setCategoria("");
-    setDescricao("");
+      navigate("/listarCategoria");
+    } catch (error) {
+      alert("Erro ao cadastrar a categoria.");
+      console.error(error);
+    }
   }
 
   return (
@@ -57,7 +68,7 @@ export default function CadastrarCategoria() {
 
         <button
           type="submit"
-          className="bg-teal-600 text-white rounded py-2 font-semibold hover:bg-teal-700 transition"
+          className="bg-teal-600 cursor-pointer text-white rounded py-2 font-semibold hover:bg-teal-700 transition"
         >
           Cadastrar
         </button>
@@ -65,4 +76,3 @@ export default function CadastrarCategoria() {
     </div>
   );
 }
-

@@ -1,3 +1,5 @@
+import DeletarCategoria from "../categoria/DeletarCategoria";
+
 function Home() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -8,9 +10,10 @@ function Home() {
               Saúde + Código
             </h2>
             <p className="bg-teal-800 text-xl italic text-center">
-              Cuidando da sua saúde com o mesmo carinho que você cuida do código!
+              Cuidando da sua saúde com o mesmo carinho que você cuida do
+              código!
             </p>
-          </div>
+          </div> 
           <img
             src="https://i.imgur.com/cXNGBqH.png"
             alt="Ilustração estilizada de saúde e tecnologia combinadas"
@@ -19,7 +22,7 @@ function Home() {
         </div>
       </section>
 
-            <h1 className="bg-emerald-50 text-3xl font-bold text-teal-800 py-20 px-9">
+      <h1 className="bg-emerald-50 text-3xl font-bold text-teal-800 py-20 px-9">
         Categorias
       </h1>
 
@@ -46,11 +49,14 @@ function Home() {
             <p className="text-sm text-teal-700 mb-4">({item.desc})</p>
 
             <div className="flex justify-around">
-              <button className="bg-teal-600 hover:bg-teal-700 text-white px-3 py-1 rounded">
+              <button className="bg-teal-600 cursor-pointer hover:bg-teal-700 text-white px-3 py-1 rounded">
                 Editar
               </button>
 
-              <button className="bg-gray-400 hover:bg-gray-500 text-white px-3 py-1 rounded">
+              <button
+                onClick={DeletarCategoria}
+                className="bg-gray-400 cursor-pointer hover:bg-gray-500 text-white px-4 py-2 rounded"
+              >
                 Apagar
               </button>
             </div>
