@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import type Categoria from "../../models/Categoria";
+import type { Categoria } from "../../models/Categoria";
 import { buscar } from "../../services/Service";
 
 export default function ListarCategoria() {
